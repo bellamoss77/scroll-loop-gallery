@@ -38,8 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const thumbItems = document.createElement('li');
     thumbList.appendChild(thumbItems);
 
-    const featuredImg = document.createElement('img');
+    const featuredImg = document.createElement('div');
     featuredImg.className = 'featured';
+ 
+    featuredImg.innerHTML = `<img src="images/fleurs_1 .png" alt="flower">`
     galleryWrapper.appendChild(featuredImg);
 
     const galleryBtnsContainer = document.createElement('div');
@@ -59,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
     galleryBtnsContainer.appendChild(openLightboxBtn);
 
     const images = [
-        { src: 'https://github.com/bellamoss77/scroll-loop-gallery/blob/main/images/fleurs_1%20.png?raw=true', alt: 'flower' },
         { src: 'https://github.com/bellamoss77/scroll-loop-gallery/blob/main/images/fleurs_10.png?raw=true', alt: 'flower' },
         { src: 'https://github.com/bellamoss77/scroll-loop-gallery/blob/main/images/fleurs_11.png?raw=true', alt: 'flower' },
         { src: 'https://github.com/bellamoss77/scroll-loop-gallery/blob/main/images/fleurs_12.png?raw=true', alt: 'flower' },
@@ -74,15 +75,17 @@ document.addEventListener('DOMContentLoaded', function() {
         { src: 'https://github.com/bellamoss77/scroll-loop-gallery/blob/main/images/fleurs_9.png?raw=true', alt: 'flower' },
         { src: 'https://github.com/bellamoss77/scroll-loop-gallery/blob/main/images/sunset_1.png?raw=true', alt: 'sunset' },
         { src: 'https://github.com/bellamoss77/scroll-loop-gallery/blob/main/images/sunset_2.png?raw=true', alt: 'sunset' },
+        { src: 'https://github.com/bellamoss77/scroll-loop-gallery/blob/main/images/fleurs_1%20.png?raw=true', alt: 'flower' }
     ]
-
+    
     
     function createGallery() {
         images.forEach(image => {
             const img = document.createElement('img');
             img.src = image.src;
             img.alt = image.alt;
-            galleryWrapper.appendChild(img);
+            img.className = 'gallery-img';
+            thumbItems.appendChild(img);
         })
     }
     createGallery();

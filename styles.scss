@@ -11,16 +11,55 @@ $secondaryFont: 'niveau-grotesk', sans-serif;
 }
 
 body {
-    height: 100%;
+    display: block;
     width: 100%;
     margin: 0;
     padding: 0;
     background: linear-gradient(185deg, rgba(8,51,129,1) 0%, rgba(6,84,7,1) 100%);
-    @include flex(column, center, center);
     margin: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .header-container {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
+    @include flex(column, center, center);
+    h1 {
+        font-family: $primaryFont;
+        font-size: 5rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 3rem;
+        z-index: 100
+    }
+    h3 {
+        font-family: $secondaryFont;
+        font-style: italic;
+        font-size: 3rem;
+        font-weight: 400;
+        z-index: 100;
+        color: #fff;
+    }
+    img {
+        height: 500px;
+        width: auto;
+    }
+}
+
+#galleryWrapper {
+    width: 100%;
+    height: 50vh;
+    overflow-y: hidden;
+    @include flex(row, center, center);
+    .thumb-list {
+        width: 30%;
+        height: auto;
+        padding: 1rem;
+        @include flex(column, center, center);
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
